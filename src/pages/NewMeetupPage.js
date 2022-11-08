@@ -27,9 +27,7 @@ function NewMeetupPage() {
         hideProgressBar: true,
       });
 
-      setTimeout(() => {
-        navigate("/", { replace: true });
-      },1000);
+      navigate("/", { replace: true });
   };
 
   return (

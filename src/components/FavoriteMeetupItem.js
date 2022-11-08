@@ -1,19 +1,13 @@
 import { useContext } from 'react';
 import FavoriteContext from '../store/favorite-context';
-import {toast} from 'react-toastify';
 
-function MeetupItem(props) {
+function FavoriteMeetupItem(props) {
   const favoriteCtx = useContext(FavoriteContext);
 
   const itemIsFavorite = favoriteCtx.itemIsFavorite(props.id)
   function toggleFavoriteHandler() {
     if(itemIsFavorite){
       favoriteCtx.removeFavorite(props.id);
-      toast.success("Successfully remove to favorite.", {
-        position: toast.POSITION.TOP_CENTER,
-        hideProgressBar: true,
-        autoClose: 1000,
-      })
     }else{
       favoriteCtx.addFavorite({
         id: props.id,
@@ -22,11 +16,6 @@ function MeetupItem(props) {
         image: props.imageUrl,
         description: props.description,
         date: props.date
-      })
-      toast.success("Successfully added to favorite.", {
-        position: toast.POSITION.TOP_CENTER,
-        hideProgressBar: true,
-        autoClose: 1000,
       })
     }
   }
@@ -58,4 +47,4 @@ function MeetupItem(props) {
     </div>
   );
 }
-export default MeetupItem;
+export default FavoriteMeetupItem;

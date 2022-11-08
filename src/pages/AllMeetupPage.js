@@ -60,6 +60,7 @@ function AllMeetupPage() {
             {meetups.map((meetup) => (
               <MeetupItem
                 key={meetup.id}
+                id={meetup.id}
                 title={meetup.title}
                 imageUrl={meetup.image}
                 date={meetup.date}
